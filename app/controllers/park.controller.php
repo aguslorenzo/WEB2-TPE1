@@ -14,4 +14,15 @@ class ParkController {
         $parks = $this->model->getAll();
         $this->view->showParks($parks);
     }
+    public function addPark(){
+        //VALIDACIONES
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $province = $_POST['province'];
+
+        $id = $this->model->insertTask($name, $description, $price, $province);
+
+        header("Location: " . BASE_URL); 
+    }
 }

@@ -17,6 +17,9 @@ switch ($params[0]) {
     case 'list':
         $parkController->showParks();
         break;
+    case 'add':
+        $parkController->addPark();
+        break;
     default:
         echo('404 Page not found');
         break;

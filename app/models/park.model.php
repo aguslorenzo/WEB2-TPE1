@@ -13,4 +13,11 @@ class ParkModel{
         $parks = $query->fetchAll(PDO::FETCH_OBJ);
         return $parks;
     }
+    function insertTask($name, $description, $price, $province) {
+        $query = $this->db->prepare("INSERT INTO parks (name, description, price, id_province_fk) VALUES (?, ? ,? ,?)");
+        $query->execute([$name, $description, $price, $province]);
+        
+        return $this->db->lastInsertId();
+    }
+
 }
