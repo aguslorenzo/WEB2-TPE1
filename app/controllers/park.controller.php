@@ -14,6 +14,13 @@ class ParkController {
         $parks = $this->model->getAll();
         $this->view->showParks($parks);
     }
+
+    public function getPark($id){
+        $park = $this->model->getPark($id);
+        $this->view->showPark($park);
+
+    }
+
     public function addPark(){
         //VALIDACIONES
         $name = $_POST['name'];
@@ -21,7 +28,7 @@ class ParkController {
         $price = $_POST['price'];
         $province = $_POST['province'];
 
-        $id = $this->model->insertTask($name, $description, $price, $province);
+        $this->model->insert($name, $description, $price, $province);
 
         header("Location: " . BASE_URL); 
     }
