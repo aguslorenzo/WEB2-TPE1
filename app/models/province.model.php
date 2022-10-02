@@ -14,20 +14,15 @@ class ProvinceModel {
     }
 
     function getParks($id){
-        //mostrar nombre de la categoria a la q
-        $query = $this->db->prepare("SELECT parks.name, parks.description, parks.price/* , provinces.name */
-        FROM parks
-        INNER JOIN provinces
-        ON parks.id_province_fk = provinces.id
-        WHERE provinces.id=$id");
+        $query = $this->db->prepare("SELECT * FROM parks WHERE id_province_fk=$id");
         $query->execute();
         $parks = $query->fetchAll(PDO::FETCH_OBJ);
-        if (empty($parks)){
-            echo "no hay parques en esta provincia";
-            die;
-        }
-        else {
-            return $parks;
-        }
+        return $parks;
+    }
+    function getProvinceById($id){
+        $query = $this->db->prepare("SELECT name FROM provinces WHERE id=$id");
+        $query->execute();
+        $province = $query->fetch(PDO::FETCH_OBJ);
+        return $province;
     }
 }

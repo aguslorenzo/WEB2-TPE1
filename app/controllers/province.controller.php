@@ -18,6 +18,7 @@ class ProvinceController {
 
     public function getParksByProvince($id){
         $parks = $this->model->getParks($id);
-        $this->view->showParks($parks);
+        $province = $this->model->getProvinceById($id);
+        $this->view->showParks($parks, $province);
     }
 }

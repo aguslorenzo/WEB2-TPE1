@@ -10,12 +10,13 @@ class ProvinceView {
             }
         echo "</ul>";
     }
-    public function showParks($parks){
-        var_dump($parks);
-            /* foreach ($parks as $park){
-                echo $park->name;
-                echo $park->description;
-                echo $park->price;
-            } */
+    public function showParks($parks, $province){
+        //mostrar nombre de la provincia mirar como mostrarlo xq no creo q así esté bien
+        foreach ($parks as $park){
+            echo "Parque en la provincia de " . $province->name;
+            echo $park->name;
+            echo $park->description;
+            echo $park->price;
+        }
     }
 }
