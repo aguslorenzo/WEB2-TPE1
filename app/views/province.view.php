@@ -1,14 +1,16 @@
 <?php
+/* require_once('./libs/smarty/Smarty.class.php'); */
 class ProvinceView {
     public function showProvinces($provinces){
-        echo "<ul>";
+        include './templates/header.php';
+        echo '<ul class="list-group">';
         foreach($provinces as $province){
-            echo "<li>";
+            echo '<li class="list-group-item">';
             ?><a href="province/<?php echo $province->id?>"><?php echo $province->name?></a>;
             </li>
             <?php
             }
-        echo "</ul>";
+        echo '</ul>';
     }
     public function showParks($parks, $province){
         //mostrar nombre de la provincia mirar como mostrarlo xq no creo q así esté bien
