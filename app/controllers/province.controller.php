@@ -21,4 +21,15 @@ class ProvinceController {
         $province = $this->model->getProvinceById($id);
         $this->view->showParks($parks, $province);
     }
+
+    public function addProvince(){
+        //VALIDACIONES
+        $provinceName = $_POST['name'];
+        $this->model->insert($provinceName);
+        $this->showProvinces();
+    }
+    public function deleteProvince($id){
+        $this->model->deleteProvinceById($id);
+        $this->showProvinces();
+    }
 }

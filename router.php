@@ -29,12 +29,24 @@ switch ($params[0]) {
         $id = $params[1];
         $provinceController->getParksByProvince($id);
         break;
-    case 'add':
+    case 'addPark':
         $parkController->addPark();
         break;
-    /* case 'delete':
-        $parkController->deletePark();
-        break; */
+    case 'addProvince':
+        $provinceController->addProvince();
+        break;
+    case 'deletePark':
+        $id = $params[1];
+        $parkController->deletePark($id);
+        break;
+    case 'deleteProvince':
+        $id = $params[1];
+        $provinceController->deleteProvince($id);
+        break;
+    case 'editPark':
+        $id = $params[1];
+        $parkController->editPark($id);
+        break;    
     default:
         echo('404 Page not found');
         break;

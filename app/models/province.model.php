@@ -25,4 +25,17 @@ class ProvinceModel {
         $province = $query->fetch(PDO::FETCH_OBJ);
         return $province;
     }
+
+    function insert($provinceName) {
+        $query = $this->db->prepare("INSERT INTO provinces (name) VALUES (?)");
+        $query->execute([$provinceName]);
+        
+        return $this->db->lastInsertId();
+        //en este caso me lleva a parques, deberia de llevarme a rpovincias no se como hacer eso
+    }
+
+    function deleteProvinceById($id){
+        $query = $this->db->prepare("DELETE FROM provinces WHERE id=$id");
+        $query->execute();
+    }
 }

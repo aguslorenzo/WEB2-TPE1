@@ -3,10 +3,13 @@
 class ProvinceView {
     public function showProvinces($provinces){
         include './templates/header.php';
+        include './templates/provinceForm.php';
         echo '<ul class="list-group">';
         foreach($provinces as $province){
             echo '<li class="list-group-item">';
             ?><a href="province/<?php echo $province->id?>"><?php echo $province->name?></a>;
+            <a href="editProvince/<?php echo $province->id?>" type="button" class="btn btn-light">Editar</a>  
+            <a href="deleteProvince/<?php echo $province->id?>" type="button" class="btn btn-danger">Eliminar</a>    
             </li>
             <?php
             }
