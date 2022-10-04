@@ -16,4 +16,8 @@ class ProvinceView {
         $this->smarty->assign('province', $province);
         $this->smarty->display('province.parks.list.tpl'); 
     }
+
+    function showError($message){
+        echo "Error: $message";
+    }
 }

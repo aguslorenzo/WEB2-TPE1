@@ -16,4 +16,8 @@ class ParkView {
         $this->smarty->display('park.card.tpl');
 
     }
+
+    function showError($message){
+        echo "Error: $message";
+    }
 }

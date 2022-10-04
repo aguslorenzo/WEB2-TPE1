@@ -25,6 +25,9 @@ class ProvinceController {
     public function addProvince(){
         //VALIDACIONES
         $provinceName = $_POST['name'];
+        if (empty($provinceName)||!is_string($provinceName)){
+            $this->view->showError("Faltan datos obligatorios");    
+        }
         $this->model->insert($provinceName);
         $this->showProvinces();
     }

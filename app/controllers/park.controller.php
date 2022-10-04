@@ -30,6 +30,12 @@ class ParkController {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $province = $_POST['province'];
+        if (empty($name)||empty($description)||empty($price)||empty($province)){
+            $this->view->showError("Faltan datos obligatorios");
+        }
+        else if (!is_numeric($price)){
+            $this->view->showError("Debe ingresar un número entero en este campo");
+        }
 
         $this->model->insert($name, $description, $price, $province);
 
@@ -46,7 +52,13 @@ class ParkController {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $province = $_POST['province'];
+        if (empty($name)||empty($description)||empty($price)||empty($province)){
+            $this->view->showError("Faltan datos obligatorios");
+        }
+        else if (!is_numeric($price)){
+            $this->view->showError("Debe ingresar un número entero en este campo");
+        }
         $this->model->editParkById($id, $name, $description, $price, $province);
-        //falta llamar a vista card
+        $this->getPark($id);
     }
 }

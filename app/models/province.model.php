@@ -38,4 +38,5 @@ class ProvinceModel {
         $query = $this->db->prepare("DELETE FROM provinces WHERE id=$id");
         $query->execute();
     }
+
 }
