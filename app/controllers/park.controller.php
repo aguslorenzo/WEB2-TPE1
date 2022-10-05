@@ -14,7 +14,8 @@ class ParkController {
     }
     public function showParks(){
         $parks = $this->model->getAll();
-        $this->view->showParks($parks);
+        $provinces = $this->provinceModel->getAll();
+        $this->view->showParks($parks, $provinces);
     }
 
     public function getPark($id){

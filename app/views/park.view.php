@@ -5,8 +5,9 @@ class ParkView {
     public function __construct(){
         $this->smarty = new Smarty();
     }
-    function showParks($parks){
+    function showParks($parks, $provinces){
         $this->smarty->assign('parks', $parks);
+        $this->smarty->assign('provinces', $provinces);
         $this->smarty->display('park.list.tpl');
     }
 
