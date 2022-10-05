@@ -28,7 +28,7 @@
         <option value="22">Tierra del Fuego</option>
         <option value="3">Tucumán</option>
     </select>
-    <button type="submit">Editar</button>
+    <button type="submit">Guardar</button>
 </form>
 
 {include file = 'footer.tpl'}

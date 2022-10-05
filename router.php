@@ -57,6 +57,20 @@ switch ($params[0]) {
         $id = $params[1];
         $parkController->savePark($id);
         break;
+    case 'editProvince':
+        if(is_numeric($params[1])){
+            $id = $params[1];
+            $provinceController->editProvince($id);
+        }
+        else{
+            $id = $params[2];
+            $provinceController->saveProvince($id);
+        }
+        break;
+    case 'saveProvince':
+        $id = $params[1];
+        $provinceController->saveProvince($id);
+        break;
     default:
         echo('404 Page not found');
         break;

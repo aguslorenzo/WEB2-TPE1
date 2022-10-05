@@ -24,15 +24,32 @@ class ProvinceController {
 
     public function addProvince(){
         //VALIDACIONES
-        $provinceName = $_POST['name'];
-        if (empty($provinceName)||!is_string($provinceName)){
+        $name = $_POST['name'];
+        $capital = $_POST['name'];
+        $weather = $_POST['name'];
+        if (empty($name)||!is_string($name)||!is_string($capital)||!is_string($weather)){
             $this->view->showError("Faltan datos obligatorios");    
         }
-        $this->model->insert($provinceName);
+        $this->model->insert($name, $capital, $weather);
         $this->showProvinces();
     }
     public function deleteProvince($id){
         $this->model->deleteProvinceById($id);
         $this->showProvinces();
+    }
+
+    public function editProvince($id){
+        $this->view->editProvince($id);
+    }
+
+    public function saveProvince($id){
+        $name = $_POST['name'];
+        $capital = $_POST['capital'];
+        $weather = $_POST['weather'];
+        if (empty($name)||empty($capital)||empty($weather)){
+            $this->view->showError("Faltan datos obligatorios");
+        }
+        $this->model->editProvinceById($id, $name, $capital, $weather);
+        $this->getParksByProvince($id);
     }
 }
