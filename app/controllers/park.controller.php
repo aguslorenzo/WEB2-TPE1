@@ -60,6 +60,7 @@ class ParkController {
         $province = $_POST['province'];
         if (empty($name)||empty($description)||empty($price)||empty($province)){
             $this->view->showError("Faltan datos obligatorios");
+            die;
         }
         else if (!is_numeric($price)){
             $this->view->showError("Debe ingresar un número entero en este campo");

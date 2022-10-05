@@ -49,6 +49,7 @@ class ProvinceController {
         $weather = $_POST['weather'];
         if (empty($name)||empty($capital)||empty($weather)){
             $this->view->showError("Faltan datos obligatorios");
+            die;
         }
         $this->model->editProvinceById($id, $name, $capital, $weather);
         $this->getParksByProvince($id);

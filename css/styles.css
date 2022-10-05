@@ -1,0 +1,12 @@
+ul.nav.nav-pills {
+    background-color: lightgreen;
+    padding: 3px;
+}
+a.nav-link{
+    text-decoration: none;
+    color: brown;
+    font-size: medium;
+}
+a{
+    text-decoration: none;
+}
