@@ -14,14 +14,14 @@ class ProvinceModel {
     }
 
     function getParks($id){
-        $query = $this->db->prepare("SELECT * FROM parks WHERE id_province_fk=$id");
-        $query->execute();
+        $query = $this->db->prepare("SELECT * FROM parks WHERE id_province_fk=?");
+        $query->execute([$id]);
         $parks = $query->fetchAll(PDO::FETCH_OBJ);
         return $parks;
     }
     function getProvinceById($id){
-        $query = $this->db->prepare("SELECT name FROM provinces WHERE id=$id");
-        $query->execute();
+        $query = $this->db->prepare("SELECT * FROM provinces WHERE id=?");
+        $query->execute([$id]);
         $province = $query->fetch(PDO::FETCH_OBJ);
         return $province;
     }
@@ -35,8 +35,8 @@ class ProvinceModel {
     }
 
     function deleteProvinceById($id){
-        $query = $this->db->prepare("DELETE FROM provinces WHERE id=$id");
-        $query->execute();
+        $query = $this->db->prepare("DELETE FROM provinces WHERE id=?");
+        $query->execute([$id]);
     }
 
 }
