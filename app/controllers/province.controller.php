@@ -39,6 +39,7 @@ class ProvinceController {
     }
 
     public function editProvince($id){
+        $this->getParksByProvince($id);
         $this->view->editProvince($id);
     }
 

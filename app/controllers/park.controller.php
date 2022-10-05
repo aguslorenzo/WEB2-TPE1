@@ -49,6 +49,7 @@ class ParkController {
     }
     public function editPark($id){
         $provinces = $this->provinceModel->getAll();
+        $this->getPark($id);
         $this->view->editPark($id, $provinces);
     }
 
