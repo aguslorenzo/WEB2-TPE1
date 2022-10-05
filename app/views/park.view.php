@@ -18,8 +18,9 @@ class ParkView {
 
     }
 
-    function editPark($id){
+    function editPark($id, $provinces){
         $this->smarty->assign('id', $id);
+        $this->smarty->assign('provinces', $provinces);
         $this->smarty->display('park.edit.tpl');
     }
 

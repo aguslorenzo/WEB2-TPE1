@@ -4,7 +4,10 @@
     <input type="text" name="description" placeholder="descripcion">
     <input type="number" name="price" placeholder="precio">
     <select name="province">
-        <option value="1">Buenos Aires</option>
+    {foreach from=$provinces item=$province}
+        <option value="{$province->id}">{$province->name}</option>
+    {/foreach}
+        {* <option value="1">Buenos Aires</option>
         <option value="19">Catamarca</option>
         <option value="7">Chaco</option>
         <option value="4">Chubut</option>
@@ -26,7 +29,7 @@
         <option value="8">Santa Fe</option>
         <option value="20">Santiago del Estero</option>
         <option value="22">Tierra del Fuego</option>
-        <option value="3">Tucumán</option>
+        <option value="3">Tucumán</option> *}
     </select>
     <button type="submit">Guardar</button>
 </form>

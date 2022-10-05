@@ -48,7 +48,8 @@ class ParkController {
         header("Location: " . BASE_URL);
     }
     public function editPark($id){
-        $this->view->editPark($id);
+        $provinces = $this->provinceModel->getAll();
+        $this->view->editPark($id, $provinces);
     }
 
     public function savePark($id){
