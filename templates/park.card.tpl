@@ -1,5 +1,4 @@
 {include file = "header.tpl"}
-{include file = "park.form.tpl"}
 
 <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -8,6 +7,6 @@
                 <p class="card-text">{$park->description}</p>
                 <h1 class="card-title">{$park->price}</h1>
             </div>
-            <a href="editPark/{$park->id}" type="button" class="btn btn-light">Editar</a>
+            <a href="{BASE_URL}editPark/{$park->id}" type="button" class="btn btn-light">Editar</a>{* preguntar *}
 </div>
 {include file = "footer.tpl"}

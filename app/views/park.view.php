@@ -17,6 +17,11 @@ class ParkView {
 
     }
 
+    function editPark($id){
+        $this->smarty->assign('id', $id);
+        $this->smarty->display('park.edit.tpl');
+    }
+
     function showError($message){
         echo "Error: $message";
     }

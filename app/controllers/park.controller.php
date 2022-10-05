@@ -47,7 +47,10 @@ class ParkController {
         header("Location: " . BASE_URL);
     }
     public function editPark($id){
-        //VALIDACIONES
+        $this->view->editPark($id);
+    }
+
+    public function savePark($id){
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];

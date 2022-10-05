@@ -29,11 +29,11 @@ class ParkModel{
     }
 
     function deleteParkById($id){
-        $query = $this->db->prepare("DELETE FROM parks WHERE id=$id");
-        $query->execute();
+        $query = $this->db->prepare("DELETE FROM parks WHERE id=?");
+        $query->execute([$id]);
     }
     function editParkById($id, $name, $description, $price, $province){
-        $query = $this->db->prepare("UPDATE parks SET (name, description, price, id_province_fk) VAKUES (?, ?, ?, ?) WHERE id= $id");
-        $query->execute([$name, $description, $price, $province]);
+        $query = $this->db->prepare("UPDATE parks SET name=? , description=? , price=?, id_province_fk=? WHERE id= ?");
+        $query->execute([$name, $description, $price, $province, $id]);
     }
 }
