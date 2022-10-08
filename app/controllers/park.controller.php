@@ -1,6 +1,7 @@
 <?php
 require_once './app/models/park.model.php';
 require_once './app/views/park.view.php';
+require_once './app/helpers/auth.helper.php';
 
 class ParkController {
     private $model;
@@ -11,14 +12,18 @@ class ParkController {
         $this->model = new ParkModel();
         $this->view = new ParkView();
         $this->provinceModel = new ProvinceModel();
+        
     }
     public function showParks(){
+        //aca por el borrar
+
         $parks = $this->model->getAll();
         $provinces = $this->provinceModel->getAll();
         $this->view->showParks($parks, $provinces);
     }
 
     public function getPark($id){
+        //aca por el edit
         $park = $this->model->getPark($id);
         $province = $this->provinceModel->getProvinceById($park->id_province_fk);
         $this->view->showPark($park, $province->name);
@@ -44,6 +49,8 @@ class ParkController {
     }
 
     public function deletePark($id){
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
         $this->model->deleteParkById($id);
         header("Location: " . BASE_URL);
     }
