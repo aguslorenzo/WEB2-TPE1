@@ -13,6 +13,7 @@
             {if $error} 
                 <div class="alert alert-danger mt-3">
                     {$error}
+                </div>
             {/if}
             <button type="submit" class="btn btn-primary mt-3">Entrar</button>
         </form>

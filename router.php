@@ -12,8 +12,6 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-/* $parkController = new ParkController(); */
-/* $provinceController = new ProvinceController(); */
 
 switch ($params[0]) {
     case 'login':
@@ -29,7 +27,6 @@ switch ($params[0]) {
         $authController->logout();
         break;
     case 'parks':
-        $authController = new AuthController();
         $parkController = new ParkController();
         $parkController->showParks();
         break;

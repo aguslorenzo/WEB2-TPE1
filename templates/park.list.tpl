@@ -3,13 +3,12 @@
 
 <ul class="list-group">
     {foreach from=$parks item=$park}
-            <li class="list-group-item"><a href="park/{$park->id}">{$park->name}</a>
-            {if isset($smarty.session.USER_ID)}
-            <a href="deletePark/{$park->id}" type="button" class="btn btn-danger">Eliminar</a>
-            {/if}
+            <li class="list-group-item">
+                <a href="park/{$park->id}">{$park->name}</a>
+                    <a href="deletePark/{$park->id}" type="button" class="btn btn-danger">Eliminar</a>
             </li>
             
-    {{/foreach}}
+    {/foreach}
 </ul>
 
 {include file = "footer.tpl"}

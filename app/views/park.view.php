@@ -1,10 +1,13 @@
 <?php
 require_once('./libreries/smarty/libs/Smarty.class.php');
+
 class ParkView {
     private $smarty;
+    
     public function __construct(){
         $this->smarty = new Smarty();
     }
+
     function showParks($parks, $provinces){
         $this->smarty->assign('parks', $parks);
         $this->smarty->assign('provinces', $provinces);

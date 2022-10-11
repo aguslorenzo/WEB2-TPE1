@@ -7,5 +7,6 @@
             <option value="{$province->id}">{$province->name}</option>
         {/foreach}
     </select>
+    
     <button type="submit">Guardar</button>
 </form>
