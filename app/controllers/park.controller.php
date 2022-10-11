@@ -33,6 +33,7 @@ class ParkController {
 
     public function addPark(){
         //VALIDACIONES
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
@@ -55,6 +56,7 @@ class ParkController {
         header("Location: " . BASE_URL);
     }
     public function editPark($id){
+        $this->authHelper->checkLoggedIn();
         $provinces = $this->provinceModel->getAll();
         $this->getPark($id);
         $this->view->editPark($id, $provinces);
