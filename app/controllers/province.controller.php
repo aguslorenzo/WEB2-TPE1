@@ -36,12 +36,12 @@ class ProvinceController {
             $this->view->showError("Faltan datos obligatorios");    
         }
         $this->model->insert($name, $capital, $weather);
-        $this->showProvinces();
+        header("Location: " . BASE_URL . "provinces");
     }
     public function deleteProvince($id){
         $this->authHelper->checkLoggedIn();
         $this->model->deleteProvinceById($id);
-        $this->showProvinces();
+        header("Location: " . BASE_URL . "provinces");
     }
 
     public function editProvince($id){
@@ -51,6 +51,7 @@ class ProvinceController {
     }
 
     public function saveProvince($id){
+        session_start();
         $name = $_POST['name'];
         $capital = $_POST['capital'];
         $weather = $_POST['weather'];
