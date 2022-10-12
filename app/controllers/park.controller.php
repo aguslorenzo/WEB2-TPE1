@@ -24,6 +24,7 @@ class ParkController {
     }
 
     public function getPark($id){
+        session_start();
         $park = $this->model->getPark($id);
         $province = $this->provinceModel->getProvinceById($park->id_province_fk);
         $this->view->showPark($park, $province->name);
@@ -55,9 +56,10 @@ class ParkController {
         header("Location: " . BASE_URL);
     }
     public function editPark($id){
+        session_start();
         $this->authHelper->checkLoggedIn();
         $provinces = $this->provinceModel->getAll();
-        $this->getPark($id);
+        /* $this->getPark($id); */
         $this->view->editPark($id, $provinces);
     }
 
@@ -75,5 +77,6 @@ class ParkController {
         }
         $this->model->editParkById($id, $name, $description, $price, $province);
         $this->getPark($id);
+        /* header("Location: " . BASE_URL . "park/$id" ); */
     }
 }
