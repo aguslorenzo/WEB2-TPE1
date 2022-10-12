@@ -18,7 +18,7 @@
           <a class="nav-link" href="{BASE_URL}provinces">Provincias</a>{* preguntar *}
         </li>
         <li class="nav-item">
-        {if !isset($smarty.session.USER_ID)}
+        {if !isset($smarty.session.IS_LOGGED)}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="login">Login</a>
           </li>

@@ -7,8 +7,6 @@
                 <p class="card-text">{$park->description}</p>
                 <h3 class="card-title">${$park->price}(ARS)</h3>
             </div>
-            {if isset($smarty.session.IS_LOGGED)}
                 <a href="{BASE_URL}editPark/{$park->id}" type="button" class="btn btn-light">Editar</a>{* preguntar *}
-            {/if}
 </div>
 {include file = "footer.tpl"}

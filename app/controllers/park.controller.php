@@ -15,7 +15,6 @@ class ParkController {
         $this->provinceModel = new ProvinceModel();
         $this->authHelper = new AuthHelper();
         
-        
     }
     public function showParks(){
         session_start();

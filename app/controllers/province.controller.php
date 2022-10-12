@@ -1,17 +1,21 @@
 <?php
 require_once './app/models/province.model.php';
 require_once './app/views/province.view.php';
+require_once './app/helpers/auth.helper.php';
 
 class ProvinceController {
     private $model;
     private $view;
+    private $authHelper;
 
     public function __construct() {
         $this->model = new ProvinceModel();
         $this->view = new ProvinceView();
+        $this->authHelper = new AuthHelper();
     }
 
     public function showProvinces(){
+        session_start();
         $provinces = $this->model->getAll();
         $this->view->showProvinces($provinces);
     }
@@ -23,6 +27,7 @@ class ProvinceController {
     }
 
     public function addProvince(){
+        $this->authHelper->checkLoggedIn();
         //VALIDACIONES
         $name = $_POST['name'];
         $capital = $_POST['name'];
@@ -34,11 +39,13 @@ class ProvinceController {
         $this->showProvinces();
     }
     public function deleteProvince($id){
+        $this->authHelper->checkLoggedIn();
         $this->model->deleteProvinceById($id);
         $this->showProvinces();
     }
 
     public function editProvince($id){
+        $this->authHelper->checkLoggedIn();
         $this->getParksByProvince($id);
         $this->view->editProvince($id);
     }
