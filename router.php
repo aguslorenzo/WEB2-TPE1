@@ -41,6 +41,7 @@ switch ($params[0]) {
         break;
     case 'province':
         $provinceController = new ProvinceController();
+        $parkController = new ParkController();
         $id = $params[1];
         $provinceController->getParksByProvince($id);
         break;

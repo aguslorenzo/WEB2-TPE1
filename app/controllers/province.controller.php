@@ -6,11 +6,13 @@ require_once './app/helpers/auth.helper.php';
 class ProvinceController {
     private $model;
     private $view;
+    private $parkModel;
     private $authHelper;
 
     public function __construct() {
         $this->model = new ProvinceModel();
         $this->view = new ProvinceView();
+        $this->parkModel = new ParkModel();
         $this->authHelper = new AuthHelper();
     }
 
@@ -20,10 +22,10 @@ class ProvinceController {
         $this->view->showProvinces($provinces);
     }
 
-    public function getParksByProvince($id){
+    public function getParksByProvince($provinceId){
         session_start();
-        $parks = $this->model->getParks($id); //todos los parques de una provincia
-        $province = $this->model->getProvinceById($id); //detalles de una provincia
+        $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
+        $province = $this->model->getProvinceById($provinceId); //detalles de una provincia
         $this->view->showParks($parks, $province);
     }
 

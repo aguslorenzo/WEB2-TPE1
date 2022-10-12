@@ -13,12 +13,12 @@ class ProvinceModel {
         return $provinces;
     }
 
-    function getParks($id){
+    /* function getParks($id){
         $query = $this->db->prepare("SELECT * FROM parks WHERE id_province_fk=?");
         $query->execute([$id]);
         $parks = $query->fetchAll(PDO::FETCH_OBJ);
         return $parks;
-    }
+    } */
     function getProvinceById($id){
         $query = $this->db->prepare("SELECT * FROM provinces WHERE id=?");
         $query->execute([$id]);

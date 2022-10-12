@@ -28,7 +28,6 @@ class ParkController {
         $park = $this->model->getPark($id);
         $province = $this->provinceModel->getProvinceById($park->id_province_fk);
         $this->view->showPark($park, $province->name);
-
     }
 
     public function addPark(){

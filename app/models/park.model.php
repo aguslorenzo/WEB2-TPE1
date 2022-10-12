@@ -28,6 +28,13 @@ class ParkModel{
         return $park;
     }
 
+    function getParks($provinceId){
+        $query = $this->db->prepare("SELECT * FROM parks WHERE id_province_fk=?");
+        $query->execute([$provinceId]);
+        $parks = $query->fetchAll(PDO::FETCH_OBJ);
+        return $parks;
+    }
+
     function deleteParkById($id){
         $query = $this->db->prepare("DELETE FROM parks WHERE id=?");
         $query->execute([$id]);
