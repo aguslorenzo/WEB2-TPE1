@@ -21,8 +21,9 @@ class ProvinceController {
     }
 
     public function getParksByProvince($id){
-        $parks = $this->model->getParks($id);
-        $province = $this->model->getProvinceById($id);
+        session_start();
+        $parks = $this->model->getParks($id); //todos los parques de una provincia
+        $province = $this->model->getProvinceById($id); //detalles de una provincia
         $this->view->showParks($parks, $province);
     }
 
@@ -45,13 +46,13 @@ class ProvinceController {
     }
 
     public function editProvince($id){
+        session_start();
         $this->authHelper->checkLoggedIn();
-        $this->getParksByProvince($id);
+        /* $this->getParksByProvince($id); */
         $this->view->editProvince($id);
     }
 
     public function saveProvince($id){
-        session_start();
         $name = $_POST['name'];
         $capital = $_POST['capital'];
         $weather = $_POST['weather'];
@@ -60,6 +61,7 @@ class ProvinceController {
             die;
         }
         $this->model->editProvinceById($id, $name, $capital, $weather);
-        $this->getParksByProvince($id);
+        /* $this->getParksByProvince($id); */
+        header("Location: " . BASE_URL . "province/$id" );
     }
 }

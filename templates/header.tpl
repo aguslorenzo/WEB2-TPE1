@@ -24,7 +24,7 @@
           </li>
         {else} 
           <li class="nav-item ml-auto">
-            <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
+            <a class="nav-link" aria-current="page" href="{BASE_URL}logout">Logout ({$smarty.session.USER_EMAIL})</a>
           </li>
         {/if}
   </ul>
