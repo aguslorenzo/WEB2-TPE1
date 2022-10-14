@@ -32,6 +32,7 @@ class ParkController {
 
     public function addPark(){
         //VALIDACIONES
+        session_start();
         $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
@@ -50,6 +51,7 @@ class ParkController {
     }
 
     public function deletePark($id){
+        session_start();
         $this->authHelper->checkLoggedIn();
         $this->model->deleteParkById($id);
         header("Location: " . BASE_URL);
@@ -58,7 +60,6 @@ class ParkController {
         session_start();
         $this->authHelper->checkLoggedIn();
         $provinces = $this->provinceModel->getAll();
-        /* $this->getPark($id); */
         $this->view->editPark($id, $provinces);
     }
 
@@ -76,6 +77,5 @@ class ParkController {
         }
         $this->model->editParkById($id, $name, $description, $price, $province);
         $this->getPark($id);
-        /* header("Location: " . BASE_URL . "park/$id" ); */
     }
 }

@@ -30,6 +30,7 @@ class ProvinceController {
     }
 
     public function addProvince(){
+        session_start();
         $this->authHelper->checkLoggedIn();
         //VALIDACIONES
         $name = $_POST['name'];
@@ -42,15 +43,20 @@ class ProvinceController {
         header("Location: " . BASE_URL . "provinces");
     }
     public function deleteProvince($id){
+        session_start();
         $this->authHelper->checkLoggedIn();
-        $this->model->deleteProvinceById($id);
-        header("Location: " . BASE_URL . "provinces");
+        try {
+            $this->model->deleteProvinceById($id);
+            header("Location: " . BASE_URL . "provinces");
+        } catch (Exception $e){
+            echo "No puede eliminar esta categoría porque existen parques pertenecientes a la misma.";//medio pelo
+        }
+        
     }
 
     public function editProvince($id){
         session_start();
         $this->authHelper->checkLoggedIn();
-        /* $this->getParksByProvince($id); */
         $this->view->editProvince($id);
     }
 
@@ -63,7 +69,6 @@ class ProvinceController {
             die;
         }
         $this->model->editProvinceById($id, $name, $capital, $weather);
-        /* $this->getParksByProvince($id); */
         header("Location: " . BASE_URL . "province/$id" );
     }
 }
