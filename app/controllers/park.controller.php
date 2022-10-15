@@ -68,14 +68,29 @@ class ParkController {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $province = $_POST['province'];
-        if (empty($name)||empty($description)||empty($price)||empty($province)){
+        $park = $this->model->getPark($id);
+
+        if (!empty($name)){
+            $park->name = $name;
+        }
+        if (!empty($description)){
+            $park->description = $description;
+        }
+        if (!empty($price)){
+            $park->price = $price;
+        }
+        if (!empty($province)){
+            $park->id_province_fk = $province;
+        }
+        /* if (empty($name)||empty($description)||empty($price)||empty($province)){
             $this->view->showError("Faltan datos obligatorios");
             die;
         }
         else if (!is_numeric($price)){
             $this->view->showError("Debe ingresar un número entero en este campo");
         }
-        $this->model->editParkById($id, $name, $description, $price, $province);
+ */
+        $this->model->editParkById($id, $park->name, $park->description, $park->price, $park->id_province_fk);
         $this->getPark($id);
     }
 }
