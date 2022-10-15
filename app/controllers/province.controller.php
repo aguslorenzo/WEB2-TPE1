@@ -64,11 +64,24 @@ class ProvinceController {
         $name = $_POST['name'];
         $capital = $_POST['capital'];
         $weather = $_POST['weather'];
-        if (empty($name)||empty($capital)||empty($weather)){
+        $province = $this->model->getProvinceById($id);
+
+        if (!empty($name)){
+            $province->name = $name;
+        }
+        if (!empty($capital)){
+            $province->capital = $capital;
+        }
+        if (!empty($weather)){
+            $province->weather = $weather;
+        }
+
+        /* if (empty($name)||empty($capital)||empty($weather)){
             $this->view->showError("Faltan datos obligatorios");
             die;
-        }
-        $this->model->editProvinceById($id, $name, $capital, $weather);
+        } */
+
+        $this->model->editProvinceById($id, $province->name, $province->capital, $province->weather);
         header("Location: " . BASE_URL . "province/$id" );
     }
 }
