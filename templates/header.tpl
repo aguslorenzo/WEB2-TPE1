@@ -13,26 +13,26 @@
 </head>
 
 <body>
-  <nav class= "d-flex justify-content-lg-between">
+  <nav class= "d-flex justify-content-lg-between bg-info">
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" href="{* {BASE_URL} *}parks">Parques</a>{* preguntar *}
+        <a class="nav-link link-dark" href="parks">Parques</a>{* preguntar *}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{* {BASE_URL} *}provinces">Provincias</a>{* preguntar *}
+        <a class="nav-link link-dark" href="provinces">Provincias</a>{* preguntar *}
       </li>
       <li class="nav-item">
         {if !isset($smarty.session.IS_LOGGED)}
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="login">Login</a>
+          <a class="nav-link link-dark" aria-current="page" href="login">Login</a>
         </li>
       {else}
         <li class="nav-item ml-auto">
-          <a class="nav-link" aria-current="page" href="{* {BASE_URL} *}logout">Logout ({$smarty.session.USER_EMAIL})</a>
+          <a class="nav-link link-dark" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
         </li>
       {/if}
     </ul>
-    <div class= "ml-auto">
+    <div class= "ml-auto align-self-center">
       <h4>Parques Nacionales de Argentina</h4>
     </div>
     </nav>
