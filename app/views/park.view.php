@@ -14,9 +14,14 @@ class ParkView {
         $this->smarty->display('park.list.tpl');
     }
 
-    function showPark($park, $provinceName){
+    function showPark($park, $provinceName, $error=null){
         $this->smarty->assign('park', $park);
         $this->smarty->assign('provinceName', $provinceName);
+
+        if ($error!=null){
+            $this->smarty->assign('error', $error);
+        }
+
         $this->smarty->display('park.card.tpl');
 
     }

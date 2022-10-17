@@ -26,8 +26,15 @@ class ParkController {
     public function getPark($id){
         session_start();
         $park = $this->model->getPark($id);
-        $province = $this->provinceModel->getProvinceById($park->id_province_fk);
-        $this->view->showPark($park, $province->name);
+        if (!empty($park)){
+            $province = $this->provinceModel->getProvinceById($park->id_province_fk);
+            $this->view->showPark($park, $province->name);
+        }
+        else {
+            $error = "Parque no encontrado";
+            $this->view->showPark($park, null, $error);
+        }
+        
     }
 
     public function addPark(){
