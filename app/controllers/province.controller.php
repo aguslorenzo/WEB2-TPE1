@@ -40,7 +40,7 @@ class ProvinceController {
     public function addProvince(){
         session_start();
         $this->authHelper->checkLoggedIn();
-        //VALIDACIONES
+        
         $name = $_POST['name'];
         $capital = $_POST['name'];
         $weather = $_POST['name'];
@@ -57,7 +57,7 @@ class ProvinceController {
             $this->model->deleteProvinceById($id);
             header("Location: " . BASE_URL . "provinces");
         } catch (Exception $e){
-            echo "No puede eliminar esta categoría porque existen parques pertenecientes a la misma.";//medio pelo
+            echo "No puede eliminar esta categoría porque existen parques pertenecientes a la misma.";
         }
         
     }

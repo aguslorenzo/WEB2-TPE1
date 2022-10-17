@@ -38,7 +38,6 @@ class ParkController {
     }
 
     public function addPark(){
-        //VALIDACIONES
         session_start();
         $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];

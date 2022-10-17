@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             {foreach from=$parks item=$park}
-                    <div class="card w-50 text-center col-sm-6" {* style=" width: 50rem; text-align: center; margin: auto; padding: 10px;" *}>
+                    <div class="card w-50 text-center col-sm-6">
                         <div class="card-body">
                             <h2 class="card-title">{$park->name}</h2>
                             <p class="card-text">{$park->description}</p>

@@ -17,8 +17,6 @@ class ParkModel{
         $query = $this->db->prepare("INSERT INTO parks (name, description, price, id_province_fk) VALUES (?, ? ,? ,?)");
         $query->execute([$name, $description, $price, $province]);
         
-        return $this->db->lastInsertId();
-        //no es necesario VER
     }
     
     function getPark($id){
