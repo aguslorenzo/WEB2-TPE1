@@ -13,7 +13,7 @@
                     <div class="col-2">
                         <div class="form-group">
                             <label for="park-price">Precio</label>
-                            <input type="text" name="price">
+                            <input type="number" name="price">
                         </div>
                     </div>
                     

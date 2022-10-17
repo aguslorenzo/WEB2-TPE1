@@ -49,10 +49,10 @@ class ParkController {
             $this->view->showError("Faltan datos obligatorios");
             die();
         }
-        else if (!is_numeric($price)){
+        /* else if (!is_numeric($price)){
             $this->view->showError("Debe ingresar un número entero en este campo");
             die();
-        }
+        } */
 
         $this->model->insert($name, $description, $price, $province);
 
@@ -88,7 +88,7 @@ class ParkController {
             if (!empty($description)){
                 $park->description = $description;
             }
-            if (!empty($price)){
+            if ((!empty($price))){
                 $park->price = $price;
             }
             if (!empty($province)){
