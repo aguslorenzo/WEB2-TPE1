@@ -1,5 +1,6 @@
 {if isset($smarty.session.IS_LOGGED)}
-    <div class="container">
+<div class="mt-5 d-flex justify-content-evenly">
+    <div class="container bg-light border rounded-2">
         <form action="addPark" method="POST" class="my-4">
             <div class="row">
                 <div class="col-2">
@@ -27,12 +28,14 @@
                     </div>
                 </div>  
             </div>
-
+    
             <div class="form-group">
                 <label for="park-decription">Descripión</label>
                 <input type="text" class="form-control" rows="3" name="description">
             </div>
-                <button type="submit" class="btn btn-primary" >Agregar</button>
-            </form>
-        </div>
+                <button type="submit" class="btn btn-outline-info text-dark" >Agregar</button>
+        </form>
+    </div>
+    
+</div>
 {/if}
