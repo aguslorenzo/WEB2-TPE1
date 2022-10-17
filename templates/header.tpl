@@ -33,7 +33,7 @@
       {/if}
     </ul>
     <div class= "ml-auto align-self-center">
-      <h4>Parques Nacionales de Argentina</h4>
+      <h4 class= "">Parques Nacionales de Argentina</h4>
     </div>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
