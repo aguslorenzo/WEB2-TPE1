@@ -11,9 +11,12 @@ class ProvinceView {
         $this->smarty->display('province.list.tpl');
     }
 
-    public function showParks($parks, $province){
+    public function showParks($parks, $province, $error=null){
         $this->smarty->assign('parks', $parks);
         $this->smarty->assign('province', $province);
+        if ($error!=null){
+            $this->smarty->assign('error', $error);
+        }
         $this->smarty->display('province.parks.list.tpl'); 
     }
 

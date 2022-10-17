@@ -25,8 +25,18 @@ class ProvinceController {
     public function getParksByProvince($provinceId){
         session_start();
         $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
+
+        if (!empty($parks)){
+            $province = $this->model->getProvinceById($provinceId); //detalles de una provincia
+            $this->view->showParks($parks, $province);
+        }
+        else {
+            $error = "Provincia no encontrada";
+            $this->view->showParks(null, null, $error);
+        }
+        /* $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
         $province = $this->model->getProvinceById($provinceId); //detalles de una provincia
-        $this->view->showParks($parks, $province);
+        $this->view->showParks($parks, $province); */
     }
 
     public function addProvince(){
