@@ -76,28 +76,29 @@ class ParkController {
         $price = $_POST['price'];
         $province = $_POST['province'];
         $park = $this->model->getPark($id);
+        if (empty($park)){
+            $this->view->showError("Parque no encontrado");
+        }
+        else {
+            if (!empty($name)){
+                $park->name = $name;
+            }
+            if (!empty($description)){
+                $park->description = $description;
+            }
+            if (!empty($price)){
+                $park->price = $price;
+            }
+            if (!empty($province)){
+                $park->id_province_fk = $province;
+            }
 
-        if (!empty($name)){
-            $park->name = $name;
+            $this->model->editParkById($id, $park->name, $park->description, $park->price, $park->id_province_fk);
+            $this->getPark($id);
         }
-        if (!empty($description)){
-            $park->description = $description;
-        }
-        if (!empty($price)){
-            $park->price = $price;
-        }
-        if (!empty($province)){
-            $park->id_province_fk = $province;
-        }
-        /* if (empty($name)||empty($description)||empty($price)||empty($province)){
-            $this->view->showError("Faltan datos obligatorios");
-            die;
-        }
-        else if (!is_numeric($price)){
-            $this->view->showError("Debe ingresar un número entero en este campo");
-        }
- */
-        $this->model->editParkById($id, $park->name, $park->description, $park->price, $park->id_province_fk);
-        $this->getPark($id);
+    }
+
+    function showError(){
+        $this->view->showError("Compruebe la ruta");
     }
 }

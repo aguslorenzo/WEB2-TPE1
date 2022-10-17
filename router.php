@@ -65,13 +65,16 @@ switch ($params[0]) {
         break;
     case 'editPark':
         $parkController = new ParkController();
-        if(is_numeric($params[1])){
+        if(isset($params[1])&&is_numeric($params[1])){
             $id = $params[1];
             $parkController->editPark($id);
         }
-        else{
+        else if(isset($params[2])&&is_numeric($params[2])){
             $id = $params[2];
             $parkController->savePark($id);
+        }
+        else {
+            $parkController->showError();
         }
         break;    
     case 'savePark':
@@ -81,13 +84,16 @@ switch ($params[0]) {
         break;
     case 'editProvince':
         $provinceController = new ProvinceController();
-        if(is_numeric($params[1])){
+        if(isset($params[1])&&is_numeric($params[1])){
             $id = $params[1];
             $provinceController->editProvince($id);
         }
-        else{
+        else if(isset($params[2])&&is_numeric($params[2])){
             $id = $params[2];
             $provinceController->saveProvince($id);
+        }
+        else {
+            $provinceController->showError();
         }
         break;
     case 'saveProvince':

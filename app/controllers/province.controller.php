@@ -34,9 +34,7 @@ class ProvinceController {
             $error = "Provincia no encontrada";
             $this->view->showParks(null, null, $error);
         }
-        /* $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
-        $province = $this->model->getProvinceById($provinceId); //detalles de una provincia
-        $this->view->showParks($parks, $province); */
+        
     }
 
     public function addProvince(){
@@ -75,23 +73,25 @@ class ProvinceController {
         $capital = $_POST['capital'];
         $weather = $_POST['weather'];
         $province = $this->model->getProvinceById($id);
-
-        if (!empty($name)){
-            $province->name = $name;
+        if (empty($province)){
+            $this->view->showError("Provincia no encontrada");
         }
-        if (!empty($capital)){
-            $province->capital = $capital;
-        }
-        if (!empty($weather)){
-            $province->weather = $weather;
-        }
+        else {
+            if (!empty($name)){
+                $province->name = $name;
+            }
+            if (!empty($capital)){
+                $province->capital = $capital;
+            }
+            if (!empty($weather)){
+                $province->weather = $weather;
+            }
 
-        /* if (empty($name)||empty($capital)||empty($weather)){
-            $this->view->showError("Faltan datos obligatorios");
-            die;
-        } */
-
-        $this->model->editProvinceById($id, $province->name, $province->capital, $province->weather);
-        header("Location: " . BASE_URL . "province/$id" );
+            $this->model->editProvinceById($id, $province->name, $province->capital, $province->weather);
+            header("Location: " . BASE_URL . "province/$id" );
+        }
+    }
+    function showError(){
+        $this->view->showError("Compruebe la ruta");
     }
 }

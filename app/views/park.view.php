@@ -33,6 +33,7 @@ class ParkView {
     }
 
     function showError($message){
-        echo "Error: $message";
+        $this->smarty->assign('error', $message);
+        $this->smarty->display('error.tpl');
     }
 }
