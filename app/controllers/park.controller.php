@@ -49,11 +49,7 @@ class ParkController {
             $this->view->showError("Faltan datos obligatorios");
             die();
         }
-        /* else if (!is_numeric($price)){
-            $this->view->showError("Debe ingresar un número entero en este campo");
-            die();
-        } */
-
+        
         $this->model->insert($name, $description, $price, $province);
 
         header("Location: " . BASE_URL); 
