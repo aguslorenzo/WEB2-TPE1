@@ -24,8 +24,6 @@ class ProvinceModel {
         $query = $this->db->prepare("INSERT INTO provinces (name, capital, weather) VALUES (?, ?, ?)");
         $query->execute([$name, $capital, $weather]);
         
-        /* return $this->db->lastInsertId();
-        //en este caso me lleva a parques, deberia de llevarme a rpovincias no se como hacer eso */
     }
 
     function deleteProvinceById($id){

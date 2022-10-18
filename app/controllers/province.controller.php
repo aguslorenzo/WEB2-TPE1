@@ -27,14 +27,12 @@ class ProvinceController {
         $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
         $province = $this->model->getProvinceById($provinceId);
         if (!empty($parks)){
-             //detalles de una provincia
             $this->view->showParks($parks, $province);
         }
         else {
             $error = "Parques no encontrados";
             $this->view->showParks(null, $province, $error);
         }
-        
     }
 
     public function addProvince(){
