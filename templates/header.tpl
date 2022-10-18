@@ -17,7 +17,7 @@
                 <a class="nav-link link-dark" href="parks">Parques</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link link-dark" href="provinces">Provincias</a>{* preguntar *}
+                <a class="nav-link link-dark" href="provinces">Provincias</a>
             </li>
             <li class="nav-item">
                 {if !isset($smarty.session.IS_LOGGED)}

@@ -24,7 +24,7 @@ class ProvinceController {
 
     public function getParksByProvince($provinceId){
         session_start();
-        $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
+        $parks = $this->parkModel->getParks($provinceId);
         $province = $this->model->getProvinceById($provinceId);
         if (!empty($parks)){
             $this->view->showParks($parks, $province);
