@@ -4,7 +4,9 @@
     <div class="card-body">
         <h2 class="card-title">Capital: {$province->capital}</h2>
         <p class="card-text">{$province->weather}</p>
-        <a href="editProvince/{$province->id}" type="button" class="btn btn-primary text-right">Editar</a>
+        {if isset($smarty.session.IS_LOGGED)}
+            <a href="editProvince/{$province->id}" type="button" class="btn btn-primary text-right">Editar</a>
+        {/if}
     </div>
 </div>
 <div style="padding: 10px;">

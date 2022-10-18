@@ -38,7 +38,7 @@ class ParkController {
     }
 
     public function addPark(){
-        session_start();
+        /* session_start(); */
         $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $description = $_POST['description'];
@@ -49,20 +49,20 @@ class ParkController {
             $this->view->showError("Faltan datos obligatorios");
             die();
         }
-        
+
         $this->model->insert($name, $description, $price, $province);
 
         header("Location: " . BASE_URL); 
     }
 
     public function deletePark($id){
-        session_start();
+/*         session_start(); */
         $this->authHelper->checkLoggedIn();
         $this->model->deleteParkById($id);
         header("Location: " . BASE_URL);
     }
     public function editPark($id){
-        session_start();
+        /* session_start(); */
         $this->authHelper->checkLoggedIn();
         $provinces = $this->provinceModel->getAll();
         $this->view->editPark($id, $provinces);
