@@ -36,7 +36,6 @@ class ProvinceController {
     }
 
     public function addProvince(){
-        /* session_start(); */
         $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $capital = $_POST['capital'];
@@ -51,7 +50,6 @@ class ProvinceController {
     }
 
     public function deleteProvince($id){
-        /* session_start(); */
         $this->authHelper->checkLoggedIn();
         try {
             $this->model->deleteProvinceById($id);
@@ -62,7 +60,6 @@ class ProvinceController {
     }
 
     public function editProvince($id){
-        /* session_start(); */
         $this->authHelper->checkLoggedIn();
         $this->view->editProvince($id);
     }
