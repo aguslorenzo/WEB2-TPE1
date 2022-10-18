@@ -49,6 +49,7 @@ class ProvinceController {
         $this->model->insert($name, $capital, $weather);
         header("Location: " . BASE_URL . "provinces");
     }
+    
     public function deleteProvince($id){
         session_start();
         $this->authHelper->checkLoggedIn();
@@ -56,9 +57,8 @@ class ProvinceController {
             $this->model->deleteProvinceById($id);
             header("Location: " . BASE_URL . "provinces");
         } catch (Exception $e){
-            echo "No puede eliminar esta categoría porque existen parques pertenecientes a la misma.";
+            $this->view->showError("No puede eliminar esta categoría porque existen parques pertenecientes a la misma.");
         }
-        
     }
 
     public function editProvince($id){
