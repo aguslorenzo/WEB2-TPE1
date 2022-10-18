@@ -25,14 +25,14 @@ class ProvinceController {
     public function getParksByProvince($provinceId){
         session_start();
         $parks = $this->parkModel->getParks($provinceId); //todos los parques de una provincia
-
+        $province = $this->model->getProvinceById($provinceId);
         if (!empty($parks)){
-            $province = $this->model->getProvinceById($provinceId); //detalles de una provincia
+             //detalles de una provincia
             $this->view->showParks($parks, $province);
         }
         else {
-            $error = "Provincia no encontrada";
-            $this->view->showParks(null, null, $error);
+            $error = "Parques no encontrados";
+            $this->view->showParks(null, $province, $error);
         }
         
     }
@@ -40,13 +40,14 @@ class ProvinceController {
     public function addProvince(){
         session_start();
         $this->authHelper->checkLoggedIn();
-        
         $name = $_POST['name'];
-        $capital = $_POST['name'];
-        $weather = $_POST['name'];
-        if (empty($name)||!is_string($name)||!is_string($capital)||!is_string($weather)){
-            $this->view->showError("Faltan datos obligatorios");    
+        $capital = $_POST['capital'];
+        $weather = $_POST['weather'];
+        if (empty($name)||empty($capital)||empty($weather)){
+            $this->view->showError("Faltan datos obligatorios");
+            die();
         }
+        
         $this->model->insert($name, $capital, $weather);
         header("Location: " . BASE_URL . "provinces");
     }
